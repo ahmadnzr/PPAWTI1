@@ -11,7 +11,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <div class="navbar-form navbar-right">
-                <a href="#" type="submit" class="btn btn-success"><i class="fa fa-sign-out"></i> Logout</a>
+                <a href="<?php echo site_url('Perpustakaan/Logout');?>" type="submit" class="btn btn-success"><i class="fa fa-sign-out"></i> Logout</a>
             </div>
       </div>
     </nav>
