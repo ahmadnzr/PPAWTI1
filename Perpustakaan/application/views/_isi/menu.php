@@ -8,6 +8,6 @@
       <a href="<?php echo site_url('Perpustakaan/Pengembalian')?>" class="list-group-item"><i class="fa fa-book"></i> Pengembalian</a>
       <a href="<?php echo site_url('Perpustakaan/dataBuku')?>" class="list-group-item"><i class="fa fa-book"></i> Buku</a>
       <a href="<?php echo site_url('Perpustakaan/user')?>" class="list-group-item"><i class="fa fa-address-book"></i> Mahasiswa</a>
-      <a href="logout.php" class="list-group-item"><i class="fa fa-sign-out"></i> Logout</a>
+      <a href="<?php echo site_url('Perpustakaan/logout');?>" class="list-group-item"><i class="fa fa-sign-out"></i> Logout</a>
     </div>
 </div>
