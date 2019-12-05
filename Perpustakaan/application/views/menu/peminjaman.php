@@ -32,6 +32,7 @@
 										<tr>
 											<th scope="col">Id</th>
 											<th scope="col">Tanggal Peminjaman</th>
+											<th scope="col">Kode Buku</th>
 											<th scope="col">Buku</th>
 											<th scope="col">Mahasiswa</th>
 											<th scope="col">Aksi</th>
@@ -45,6 +46,7 @@
 										<tr>
 											<td><?php echo $no++ ?></td>
 											<td><?php echo $peminjaman->tgl ?></td>
+											<td><?php echo $peminjaman->kode_buku; ?></td>
 											<td><?php echo $peminjaman->judul ?></td>
 											<td><?php echo $peminjaman->nama ?></td>
 											<td>
