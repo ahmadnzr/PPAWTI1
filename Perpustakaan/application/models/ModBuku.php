@@ -1,12 +1,12 @@
-<?php 
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * 
+ *
  */
 class ModBuku extends CI_Model
 {
-	
+
 	public function getTable(){
 		$this->db->select('tb_buku.*, tb_kategori.nama');
 		$this->db->from('tb_buku');
@@ -18,7 +18,7 @@ class ModBuku extends CI_Model
 		return $this->db->insert('tb_buku', $data);
 	}
 	public function get($id){
-		return $this->db->where('id', $id)->get('tb_buku')->row();		
+		return $this->db->where('id', $id)->get('tb_buku')->row();
 	}
 	public function update($data, $id){
 		return $this->db->where('id',$id)->update('tb_buku',$data);
