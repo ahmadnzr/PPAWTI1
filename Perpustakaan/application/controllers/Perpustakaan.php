@@ -7,6 +7,7 @@ class Perpustakaan extends Ci_Controller{
 		parent:: __construct();
 		$this->load->model("admin");
 		$this->load->model("ModBuku");
+		$this->load->model("ModPeminjaman");
 	}
 	public function index(){
 		if ($this->admin->logged_id()) {
@@ -24,8 +25,8 @@ class Perpustakaan extends Ci_Controller{
 	}
 	public function Peminjaman(){
 		if ($this->admin->logged_id()) {
-			//$data["tb_buku"] = $this->ModBuku->getTable();
-			$this->load->view('menu/peminjaman.php');
+			$data["tb_peminjaman"] = $this->ModPeminjaman->getTable();
+			$this->load->view('menu/peminjaman.php',$data);
 		}else {
 			// code...
 			redirect('login');
