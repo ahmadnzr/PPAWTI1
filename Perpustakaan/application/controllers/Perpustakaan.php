@@ -5,36 +5,76 @@ class Perpustakaan extends Ci_Controller{
 
 	public function __construct(){
 		parent:: __construct();
+		$this->load->model("admin");
 		$this->load->model("ModBuku");
 	}
 	public function index(){
-		$data["tb_buku"] = $this->ModBuku->getTable();
-		$this->load->view("ruang.php", $data);
+		if ($this->admin->logged_id()) {
+			$this->load->view("ruang.php");
+			// code...
+		}else {
+			// code...
+			redirect('login');
+		}
+	}
+	public function logout()
+	{
+			$this->session->sess_destroy();
+			redirect('login');
 	}
 	public function Peminjaman(){
+		if ($this->admin->logged_id()) {
 			//$data["tb_buku"] = $this->ModBuku->getTable();
 			$this->load->view('menu/peminjaman.php');
+		}else {
+			// code...
+			redirect('login');
+		}
 		}
 	public function Pengembalian(){
-				//$data["tb_buku"] = $this->ModBuku->getTable();
-				$this->load->view('menu/pengembalian.php');
+		if ($this->admin->logged_id()) {
+			//$data["tb_buku"] = $this->ModBuku->getTable();
+			$this->load->view('menu/pengembalian.php');
+		}else {
+			// code...
+			redirect('login');
+		}
+
 		}
 	public function user(){
+		if ($this->admin->logged_id()) {
 			//$data["tb_buku"] = $this->ModBuku->getTable();
-					$this->load->view('menu/user.php');
+			$this->load->view('menu/user.php');
+		}else {
+			// code...
+			redirect('login');
+		}
+
 				}
-	public function Logout(){
+	/*public function Logout(){
 
 		$this->load-view('actions/logout.php');
-	}
+	}*/
 	public function dataBuku(){
-		$data["tb_buku"] = $this->ModBuku->getTable();
-		$this->load->view('menu/buku.php',$data);
+		if ($this->admin->logged_id()) {
+			$data["tb_buku"] = $this->ModBuku->getTable();
+			$this->load->view('menu/buku.php',$data);
+		}else {
+			// code...
+			redirect('login');
+		}
+
 	}
 	public function tambahData(){
-		$this->load->model('ModKategori');
-		$data['tb_kategori'] = $this->ModKategori->getAll();
-		$this->load->view('actions/tambah-buku', $data);
+		if ($this->admin->logged_id()) {
+			$this->load->model('ModKategori');
+			$data['tb_kategori'] = $this->ModKategori->getAll();
+			$this->load->view('actions/tambah-buku', $data);
+		}else {
+			// code...
+			redirect('login');
+		}
+
 	}
 	public function simpanData(){
 		$this->load->model('ModBuku');
