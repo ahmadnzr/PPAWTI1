@@ -8,7 +8,7 @@ class ModPeminjaman extends CI_Model
 {
 
 	public function getTable(){
-		$this->db->select('tb_peminjaman.*, tb_mahasiswa.nama, tb_buku.id,tb_buku.judul');
+		$this->db->select('tb_peminjaman.*, tb_mahasiswa.nama,tb_buku.judul,tb_buku.kode_buku');
 		$this->db->from('tb_peminjaman');
 		$this->db->join('tb_buku', 'tb_buku.id = tb_peminjaman.buku_id');
 		$this->db->join('tb_mahasiswa', 'tb_mahasiswa.id = tb_peminjaman.mahasiswa_id');
