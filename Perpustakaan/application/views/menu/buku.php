@@ -59,7 +59,7 @@
 								<a href="<?php echo site_url('Perpustakaan/delete/'.$buku->id)?>" class="fa fa-trash-o" onclick="return confirm('Apakah kamu yakin?')"> Hapus</a>
 							</td>
 						</tr>
-				<?php endforeach; ?>
+					<?php endforeach ?>
 			</tbody>
 		</table>
               </div>
