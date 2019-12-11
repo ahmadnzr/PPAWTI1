@@ -18,7 +18,7 @@
               <div class="panel-body">
 								<table class="table">
 									<div>
-										<a href="#" class="fa fa-plus-circle">Tambah Data Peminjaman</a>
+										<a href="<?php echo site_url('Perpustakaan/tambahDataPeminjaman'); ?>" class="fa fa-plus-circle">Tambah Data Peminjaman</a>
 									</div>
 									<?php if ($this->session->flashdata('msg_success')):?>
 										<div class="alert alert-success"><<?php echo $this->session->flashdata('msg_success'); ?>
