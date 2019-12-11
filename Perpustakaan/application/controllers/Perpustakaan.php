@@ -23,6 +23,7 @@ class Perpustakaan extends Ci_Controller{
 			$this->session->sess_destroy();
 			redirect('login');
 	}
+//peminjaman
 	public function Peminjaman(){
 		if ($this->admin->logged_id()) {
 			$data["tb_peminjaman"] = $this->ModPeminjaman->getTable();
@@ -32,6 +33,18 @@ class Perpustakaan extends Ci_Controller{
 			redirect('login');
 		}
 		}
+		public function tambahDataPeminjaman(){
+			if ($this->admin->logged_id()) {
+				$this->load->model('ModBuku');
+				$data['tb_buku'] = $this->ModBuku->getAll();
+				$this->load->view('actions/tambah-pinjam',$data);
+			}else {
+				// code...
+				redirect('login');
+			}
+
+		}
+//pengembalian
 	public function Pengembalian(){
 		if ($this->admin->logged_id()) {
 			//$data["tb_buku"] = $this->ModBuku->getTable();
@@ -50,12 +63,8 @@ class Perpustakaan extends Ci_Controller{
 			// code...
 			redirect('login');
 		}
-
 				}
-	/*public function Logout(){
-
-		$this->load-view('actions/logout.php');
-	}*/
+//Buku
 	public function dataBuku(){
 		if ($this->admin->logged_id()) {
 			$data["tb_buku"] = $this->ModBuku->getTable();
